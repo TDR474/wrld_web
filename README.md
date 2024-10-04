@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # iuri.is()
 
 🧚 Listen!
@@ -38,3 +39,6 @@ I'm currently working on a new portfolio to replace this old one, but since many
 I'll publish a new versions built with React Hooks and Vue's composition API. 
 The main idea will be to allow you guys to re-use/build animated components easily on your own projects, based on GSAP 3 and ScrollTrigger.
 
+=======
+Official site of Lucid Labs.
+>>>>>>> 851f5d6 (updates)
