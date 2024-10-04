@@ -5,8 +5,8 @@ import NProgress from 'nprogress'
 
 Vue.use(Router)
 
-const TITLE = 'iuri.is'
-const URL = 'https://iuri.is/'
+const TITLE = 'lucid.is'
+const URL = 'https://lucid.is/'
 const ABOUT =
   'Frontend developer heavily influenced by storytelling, interactions, and UX. Addicted to music, visual arts, and games.'
 

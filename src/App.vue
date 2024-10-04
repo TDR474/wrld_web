@@ -1,8 +1,14 @@
 <template>
+  
   <div id="app" :class="$route.meta.bodyClass">
+    
+    
+    
     <HeaderSection />
     <transition appear mode="out-in" :css="false" @leave="leave" @enter="enter">
-      <router-view />
+      <router-view> </router-view>
+
+      
     </transition>
     <SpineLine :isPlaying="isSpinePlaying" />
     <div class="tweenerElement"></div>
@@ -18,12 +24,14 @@ import { ScrollMagicPluginGsap } from 'scrollmagic-plugin-gsap'
 import HeaderSection from './components/HeaderSection.vue'
 import FooterSection from './components/FooterSection.vue'
 import SpineLine from './components/SpineLine.vue'
+//import CursorFx from './components/cursorfx.vue'
 
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax)
 
 export default {
   name: 'App',
   components: {
+
     HeaderSection,
     SpineLine,
     FooterSection,
@@ -92,13 +100,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 // vars
 :root {
-  --purple: #682ae9;
+  --purple: #ED502C;
+  --orange: #ff8c00;
   --light: #dbdbdb;
   --header-link: #dbdbdb;
-  --header-link-hover: #682ae9;
+  --header-link-hover: #ea2b12;
   --header-link-hover-icon: #dbdbdb;
   --header-link-active: rgba(85, 85, 85, 1);
   --std-color: #dbdbdb;
@@ -195,7 +204,7 @@ body {
   transition: background-color 0.4s ease-out;
 
   &.blue-background {
-    background: #0497d1;
+    background: #0e0f0f;
 
     .header-nav-button .dots {
       background: #000;
@@ -258,11 +267,13 @@ body {
   letter-spacing: -0.05em;
   word-break: break-word;
   hyphens: auto;
+  // margin-left: 25vw;
   margin-right: -25vw;
-  padding-right: 1rem;
+  padding-right: 20rem;
 
   .func {
     color: var(--purple);
+    letter-spacing: -0.05em;
   }
 
   .params {
@@ -294,7 +305,7 @@ body {
     .subtitle {
       margin-right: -4rem;
       font-size: 3.5rem;
-      word-spacing: unset;
+      word-spacing: -0.05rem;
     }
   }
 }

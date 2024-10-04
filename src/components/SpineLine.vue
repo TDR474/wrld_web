@@ -56,7 +56,7 @@ export default {
             backgroundColor: 'transparent',
           },
           {
-            backgroundColor: '#5918df',
+            backgroundColor: '#F47F1E',
           },
           'enter+=1.2'
         )

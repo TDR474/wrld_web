@@ -1,41 +1,51 @@
 <template>
-  <div id="home" class="wrapper">
+  <div>
+    
     <IntroScene />
     <GapBlock />
+  
+  <div id="home" class="wrapper">
+    
 
+    
+
+    
     <TitleSection scene="curriculum">
-      <TitleFunction params="/^.*$/gi" subtitle="&lt;WorkShowcase&gt;"
-        >myCV</TitleFunction
-      >
+      <TitleFunction 
+      params="ThePath" 
+      subtitle="" 
+      href="https://drive.google.com/file/d/1BADQx9Zv18Dzr4xhRAh87_gBE8WFsRAK/view?usp=sharing"></TitleFunction>
     </TitleSection>
 
     <BizScene :isPlaying="isPlaying.Biz" />
-    <GapBlock />
+   
 
-    <EarlyDaysScene :isPlaying="isPlaying.EarlyDays" />
-    <GapBlock />
 
-    <TitleSection scene="ArtPhiGamesTitle">
-      <TitleFunction subtitle="background.bmp">
-        <span
-          class="line"
-          v-for="text in ['Art', 'Philosophy', 'Games']"
-          :key="text"
-        >
-          <span class="params">${</span>{{ text }}<span class="params">}</span>
-        </span>
-      </TitleFunction>
-    </TitleSection>
+    <!--Title: Art Phi Games-->
+    <Titles :viewport="viewport" scene="ArtPhiGamesTitle">
+            <h1 class="title">
+                
+            </h1>
+            <div class="std">
+                
+            </div>
+        </Titles>
 
-    <SuperMarioScene />
-    <GapBlock />
+        <!--mario-->
+        <SuperMario />
+        <div class="gap"></div>
 
-    <GhibliScene :isPlaying="isPlaying.Ghibli" />
+        <!--ghibli-->
+        <Ghibli />
 
-    <WrapperScene />
+        <!--wrapper-->
+        <Wrapper />
 
-    <ThanksScene :isPlayng="isPlaying.Potion" />
+        <!--thanks-->
+        <Thanks />
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -48,10 +58,11 @@ import {
   isReverse,
   isForward,
 } from '@/utils'
+//import GlowyBlob from "../components/GlowyBlob.vue";
 import AudioMarioStart from '../components/Characters/SuperMario/assets/smw_princess_help.ogg'
 import IntroScene from '../components/Home/IntroScene.vue'
 import BizScene from '../components/Home/BizScene.vue'
-import EarlyDaysScene from '../components/Home/EarlyDaysScene.vue'
+//import //earlyDaysScene from '../components/Home///earlyDaysScene.vue'
 import SuperMarioScene from '../components/Home/SuperMarioScene.vue'
 import GhibliScene from '../components/Home/GhibliScene.vue'
 import WrapperScene from '../components/Home/WrapperScene.vue'
@@ -63,9 +74,11 @@ import TitleFunction from '../components/TitleFunction.vue'
 export default {
   name: 'HomeView',
   components: {
+    //GlowyBlob,
+
     IntroScene,
     BizScene,
-    EarlyDaysScene,
+    ////earlyDaysScene,
     SuperMarioScene,
     GhibliScene,
     WrapperScene,
@@ -83,7 +96,7 @@ export default {
       tweeners: {},
       isPlaying: {
         Biz: false,
-        EarlyDays: false,
+        ////earlyDays: false,
         Ghibli: false,
         Potion: false,
       },
@@ -94,20 +107,23 @@ export default {
   },
   mounted() {
     // setup
+    this.playGlowyBlob()
     this.playIntroScene()
+    
     this.setupScenes()
     this.manageLoops()
+    
     // scenes animation
     this.sceneMyCV()
     this.sceneBizTitle()
     this.sceneBizZen()
     this.sceneBizEverybody()
     this.sceneBizEnding()
-    this.sceneEarlyDays()
+
     this.sceneOcean()
     this.sceneFloatingHead()
     this.sceneSunset()
-    this.sceneArtPhiGames()
+    //this.sceneArtPhiGames()
     this.sceneMario()
     this.sceneGhibli()
     this.sceneWrapper()
@@ -116,7 +132,7 @@ export default {
     // loop animations
     this.isPlaying = {
       Biz: false,
-      EarlyDays: false,
+      //////earlyDays: false,
       Ghibli: false,
       Potion: false,
     }
@@ -142,11 +158,11 @@ export default {
         biz1: DOM.get('#biz1.scene'),
         biz2: DOM.get('#biz2.scene'),
         biz3: DOM.get('#biz3.scene'),
-        earlyTitle: DOM.get('#earlyTitle.scene'),
-        early1: DOM.get('#early-days.scene'),
-        early2: DOM.get('#early-days2.scene'),
-        early3: DOM.get('#early-days3.scene'),
-        artPhiGamesTitle: DOM.get('#ArtPhiGamesTitle.scene'),
+        //earlyTitle: DOM.get('#//earlyTitle.scene'),
+        //early1: DOM.get('#//early-days.scene'),
+        //early2: DOM.get('#//early-days2.scene'),
+        //early3: DOM.get('#//early-days3.scene'),
+        //artPhiGamesTitle: DOM.get('#ArtPhiGamesTitle.scene'),
         mario: DOM.get('#Mario.scene'),
         ghibli: DOM.get('#Ghibli.scene'),
         ghibli2: DOM.get('#Ghibli2.scene'),
@@ -182,6 +198,18 @@ export default {
             })
           })
       })
+    },
+    playGlowyBlob() {
+      const blob = document.getElementById("blob");
+
+      window.onpointermove = event => { 
+        const { clientX, clientY } = event;
+        
+        blob.animate({
+          left: `${clientX}px`,
+          top: `${clientY}px`
+        }, { duration: 3000, fill: "forwards" });
+      }
     },
     playIntroScene() {
       const timeline = new TimelineMax()
@@ -219,30 +247,11 @@ export default {
       this.scrollMagicScene.biz1.on('enter', () => (this.isPlaying.Biz = true))
       this.scrollMagicScene.biz2.on('enter', () => (this.isPlaying.Biz = true))
       this.scrollMagicScene.biz3.on('enter', () => (this.isPlaying.Biz = true))
-      this.scrollMagicScene.earlyTitle.on('enter', () => {
-        this.isPlaying.Biz = true
-        this.isPlaying.EarlyDays = true
-      })
-      this.scrollMagicScene.early1.on('enter', () => {
-        this.isPlaying.Biz = false
-        this.isPlaying.EarlyDays = true
-      })
-      this.scrollMagicScene.early2.on('enter', (e) => {
-        if (isReverse(e)) {
-          this.isPlaying.EarlyDays = true
-        }
-      })
-      this.scrollMagicScene.early3.on('enter', () => {
-        removeBodyClass('is-playing-mario', 'blue-background')
-      })
-      this.scrollMagicScene.artPhiGamesTitle.on('enter', () => {
-        removeBodyClass('is-playing-mario', 'blue-background')
-      })
+      
+      
       this.scrollMagicScene.mario
         .on('enter', (e) => {
-          if (isForward(e)) {
-            this.isPlaying.EarlyDays = false
-          }
+         
           if (isReverse(e)) {
             addBodyClass('blue-background')
           }
@@ -500,287 +509,14 @@ export default {
           'start'
         )
     },
-    sceneEarlyDays() {
-      // Clouds parallax
-      const timeline = this.createParallax({
-        triggerElement: '#earlyTitle',
-      })
-      timeline
-        .addLabel('start', 0)
-        .fromTo(
-          '.cloud-1',
-          10,
-          {
-            yPercent: 50,
-            xPercent: 20,
-          },
-          {
-            yPercent: -85,
-            xPercent: -20,
-          },
-          'action'
-        )
-        .fromTo(
-          '.cloud-2',
-          10,
-          {
-            yPercent: 40,
-            xPercent: -10,
-          },
-          {
-            yPercent: -40,
-            xPercent: 85,
-          },
-          'action'
-        )
-        .fromTo(
-          '.cloud-3',
-          10,
-          {
-            yPercent: 70,
-            xPercent: 40,
-          },
-          {
-            yPercent: -85,
-            xPercent: -40,
-          },
-          'action'
-        )
+   
+    
 
-      // EarlyDays()
-      this.timelines.earlyTitle
-        .set('.pepe-scenery', { autoAlpha: 0 })
-        .set('#biz1 .container', { autoAlpha: 1 })
-        .addLabel('start', 0)
-        .to(
-          '#astro',
-          4,
-          {
-            yPercent: 600,
-            xPercent: 200,
-            ease: Power2.easeIn,
-          },
-          'start'
-        )
-        .to(
-          '#coffee',
-          4,
-          {
-            yPercent: -600,
-            xPercent: -200,
-            ease: Power2.easeIn,
-          },
-          'start'
-        )
-        .to('#earlyTitle .title-container', 2, { autoAlpha: 1 }, 'start')
-        .from(
-          '#earlyTitle .title',
-          4,
-          {
-            yPercent: -50,
-            autoAlpha: 0,
-            rotationX: 90,
-            transformOrigin: '50% 50% -100px',
-            ease: Power3.easeOut,
-          },
-          'start'
-        )
-        .from(
-          '#earlyTitle .std',
-          4,
-          {
-            yPercent: 50,
-            autoAlpha: 0,
-            rotationX: -90,
-            transformOrigin: '50% 50% 100px',
-            ease: Power3.easeOut,
-          },
-          'start'
-        )
-        .to('#earlyTitle .title, #earlyTitle .std', 4, {
-          autoAlpha: 0,
-          yPercent: -100,
-        })
-    },
-    sceneOcean() {
-      // Pepe head parallax
-      const timeline = this.createParallax({
-        triggerElement: '#early-days2',
-        duration: this.$viewport.height * 4,
-      })
-      const pepeLength = window.innerWidth + DOM.get('.pepe').offsetWidth + 16
 
-      timeline.addLabel('start').to(
-        '.pepe',
-        10,
-        {
-          x: `-${pepeLength}px`,
-          scale: 0.5,
-        },
-        'start'
-      )
+    
 
-      this.timelines.early1
-        .set('#biz1 .container', { autoAlpha: 0 })
-        .to('.pepe-scenery', 8, { autoAlpha: 1 })
-    },
-    sceneFloatingHead() {
-      this.timelines.early2.addLabel('start', 0)
-    },
-    sceneSunset() {
-      this.timelines.early3
-        .set('#Mario .container', { autoAlpha: 0 })
-        .to('.pepe-scenery', 8, { autoAlpha: 0 })
-    },
-    sceneArtPhiGames() {
-      this.timelines.artPhiGamesTitle
-        .set('#Mario .container', { autoAlpha: 0 })
-        .addLabel('start', 1)
-        .to('#ArtPhiGamesTitle .title-container', 1, { autoAlpha: 1 })
-        .staggerFrom('#ArtPhiGamesTitle .title .line', 4, {
-          yPercent: -50,
-          autoAlpha: 0,
-          rotationX: 90,
-          transformOrigin: '50% 50% -100px',
-          ease: Power3.easeOut,
-          stagger: 0.5,
-        })
-        .from(
-          '#ArtPhiGamesTitle .std',
-          4,
-          {
-            yPercent: 50,
-            autoAlpha: 0,
-            rotationX: -90,
-            transformOrigin: '50% 50% 100px',
-            ease: Power3.easeOut,
-          },
-          '-=1'
-        )
-        .to('#ArtPhiGamesTitle .title, #ArtPhiGamesTitle .std', 3, {
-          yPercent: -100,
-          autoAlpha: 0,
-        })
-        .set('#earlyTitle .title-container', { autoAlpha: 1 })
-    },
-    sceneMario() {
-      // using tweener for precise timing
-      this.tweeners.mario
-        .to('#earlyTitle .title-container', 0.5, { autoAlpha: 0 }) // fix reverse scroll and help time the mario trigger
-        .to('#Mario .container', 1, {
-          autoAlpha: 1,
-          zIndex: 4,
-          onComplete: () => {
-            const marioScene = document.getElementById('Mario')
 
-            if (!marioScene || !marioScene.classList.contains('active'))
-              return false // not this scene
 
-            if (document.body.classList.contains('has-played-mario')) {
-              addBodyClass('blue-background')
-              return false
-            }
-
-            const audioContext = new AudioContext()
-            if (audioContext.state === 'running') {
-              this.audioMarioStart.play()
-            }
-            addBodyClass('is-playing-mario') // lock screen
-          },
-        })
-    },
-    sceneGhibli() {
-      // grass parallax
-      const grassTimeline = this.createParallax({
-        triggerElement: '#Ghibli',
-        timelineTime: 2,
-        duration: this.$viewport.height * 4,
-      })
-
-      grassTimeline
-        .addLabel('start', 0)
-        .to(
-          '#Ghibli .grass1',
-          20,
-          {
-            yPercent: 10,
-            xPercent: -100,
-            ease: Power1.easeIn,
-          },
-          'start'
-        )
-        .to(
-          '#Ghibli .grass2',
-          20,
-          {
-            yPercent: 10,
-            xPercent: 100,
-            ease: Power1.easeIn,
-          },
-          'start'
-        )
-        .addLabel('start')
-
-      // clouds parallax
-      const gCloudsTimeline = this.createParallax({
-        triggerElement: '#Ghibli',
-        timelineTime: 6,
-        duration: this.$viewport.height * 4,
-      })
-
-      gCloudsTimeline
-        .addLabel('start', 0)
-        .set('#Ghibli .sky .c1, #Ghibli .sky .c2', { yPercent: 50 })
-        .to(
-          '#Ghibli .sky .c1',
-          20,
-          {
-            yPercent: 10,
-            xPercent: -50,
-            scale: 1.5,
-            ease: Power1.easeIn,
-          },
-          'start'
-        )
-        .to(
-          '#Ghibli .sky .c2',
-          20,
-          {
-            yPercent: 0,
-            scale: 1.5,
-            ease: Power1.easeIn,
-          },
-          'start'
-        )
-
-      // Howl's Castle parallax
-      const castleTimeline = this.createParallax({
-        triggerElement: '#Ghibli',
-        timelineTime: 3,
-        duration: this.$viewport.height * 5,
-      })
-
-      const castleLength = this.$viewport.isMobile
-        ? `-${
-            window.innerWidth + DOM.get('.castle-container').offsetWidth + 16
-          }px`
-        : '-120vw'
-
-      castleTimeline.to('.castle-container', 10, {
-        x: castleLength,
-        y: '-70vh',
-        scale: 0.5,
-      })
-
-      this.timelines.ghibli
-        .addLabel('start', 0)
-        .to('#Mario .container', 4, { autoAlpha: 0 }, 'start')
-        .to('#Ghibli .container', 4, { autoAlpha: 1 }, 'start')
-
-      this.timelines.ghibli2.addLabel('start', 0)
-      this.timelines.ghibli3.addLabel('start', 0)
-      this.timelines.ghibli4.addLabel('start', 0)
-    },
     sceneWrapper() {
       this.timelines.wrapper
         .addLabel('start', 0)

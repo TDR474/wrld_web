@@ -1,19 +1,28 @@
 <template>
-  <section class="scene" :id="scene">
-    <div class="title-container">
-      <slot></slot>
-    </div>
-  </section>
+  <div :class="scene">
+    <slot></slot> <!-- Ensures TitleFunction slot content is rendered -->
+  </div>
 </template>
 
 <script>
+// export default {
+//   props: {
+//     scene: {
+//       type: String,
+//       default: '',
+//     },
+//   },
+// };
+// </script>
+
+
 export default {
   name: 'TitleSection',
   props: {
     scene: String,
   },
 }
-</script>
+
 
 <style lang="scss">
 .title-container {
@@ -26,27 +35,20 @@ export default {
   visibility: hidden;
   perspective: 900px;
   perspective-origin: 50% 50vh;
-  padding: 0 1rem 0 25vw;
+  padding-left: 4rem; /* Adjust this to match the alignment of bottom text */
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  align-items: flex-start; /* Align to the left */
   justify-content: center;
 
-  .title {
-    margin-right: 0;
-    padding-right: 0;
-  }
+
 
   @media screen and (max-width: 1024px) {
-    padding-left: 4rem;
+    padding-left: 0rem;
   }
 
   @media screen and (max-width: 568px) {
-    padding: 0 1rem 0 2rem;
-
-    .title {
-      margin-bottom: 1rem;
-    }
+    padding-left: 1rem; /* Reduce padding for smaller screens */
   }
 }
 </style>

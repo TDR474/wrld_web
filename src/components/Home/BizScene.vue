@@ -1,75 +1,71 @@
 <template>
   <div class="bizScene">
+    
     <TitleSection scene="bizTitle">
-      <TitleFunction params="2011,2019">biz</TitleFunction>
+      <TitleFunction params="2022,♾️"></TitleFunction>
     </TitleSection>
 
     <SceneSection id="biz1">
       <TextBlock>
         <p class="-big">
-          From 2011 to 2019 I was
-          <strong class="-purple">Head of Frontend</strong>
-          @
-          <a
-            href="https://www.bizcommerce.com.br/"
-            target="_blank"
-            title="Visit Biz Commerce's website"
-          >
-            biz</a
-          >.
+          Re-imagining Money:
+          <strong class="-purple">A Brand New</strong>
+          Store of Value, Unit of Account, and Medium of Exchange
         </p>
         <p>
-          A SaaS e-commerce platform focused on simplifying and customizing the
-          use of Magento.
+          No more perverse political incentives and bad monetary policies. Just <strong class="-purple">good money for everyone</strong>
         </p>
       </TextBlock>
       <template #container>
         <ABiz :isPlaying="isPlaying" />
-        <Dino :isPlaying="isPlaying" />
-        <Astronaut :isPlaying="isPlaying" />
+
+        
         <CoffeeMug :isPlaying="isPlaying" />
-        <Shrimp v-if="$viewport.isDesktop" :isPlaying="isPlaying" />
-        <Octopus v-if="$viewport.isDesktop" :isPlaying="isPlaying" />
+
+
         <ET v-if="!$viewport.isMobile" :isPlaying="isPlaying" />
-        <Zen v-if="!$viewport.isMobile" :isPlaying="isPlaying" />
+        
         <Shapes :isPlaying="isPlaying" />
       </template>
     </SceneSection>
     <SceneSection id="biz2">
       <TextBlock>
+        
         <p>
-          Throughout these years we delivered hundreds of
+          Using advanced econometric models, 
           <span class="-big -purple">
-            tools, modules, integrations, and custom projects
+            WRLD indexes on a basket of commodities and currencies that tracks global inflation real-time
           </span>
-          for online stores and service providers.
+          Building on the work of Nobel Laureate <a href="https://www.aier.org/article/hayeks-commodity-reserve-currency/" target="_blank">F. A. Hayek</a> 
+          and Harvard Economist <a href="https://www.hks.harvard.edu/centers/cid/publications/faculty-working-papers/currency-plus-commodity-basket" target="_blank">Jeffery Frankel</a>,
         </p>
       </TextBlock>
+      
     </SceneSection>
+    
     <SceneSection id="biz3">
       <TextBlock>
         <p>
-          biz currently runs
+          WRLD uses time-tested monetary policies:
           <span class="-big">
-            <span class="-purple">+1200 stores</span>, payment & shipping
-            integrations with
-            <span class="-purple">thousands of transactions</span> daily.
+            With <span class="-purple">Elastic Money Supply</span>, WRLD expands and contracts money supply, analogous to the Fed's <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank"> Open Market Operations</a>.
           </span>
+          
+          We are bringing tools novel to the crypto space with our economic system to create a equitable, predictable, and sustainable monetary system.
         </p>
       </TextBlock>
+      
     </SceneSection>
   </div>
 </template>
 
 <script>
 import ABiz from '../Characters/ABiz/ABiz.vue'
-import Dino from '../Characters/Dino/Dino.vue'
-import Astronaut from '../Characters/Astronaut/Astronaut.vue'
+
 import CoffeeMug from '../Characters/CoffeeMug/CoffeeMug.vue'
-import Shrimp from '../Characters/Shrimp/Shrimp.vue'
-import Octopus from '../Characters/Octopus/Octopus.vue'
-import ET from '../Characters/ET/ET.vue'
-import Zen from '../Characters/Zen/Zen.vue'
+
+
+
 import Shapes from '../Characters/Shapes/Shapes.vue'
 import TitleSection from '../TitleSection.vue'
 import TitleFunction from '../TitleFunction.vue'
@@ -80,13 +76,10 @@ export default {
   name: 'BizScene',
   components: {
     ABiz,
-    Dino,
-    Astronaut,
+
     CoffeeMug,
-    Shrimp,
-    Octopus,
-    ET,
-    Zen,
+
+
     Shapes,
     TitleSection,
     TitleFunction,
@@ -108,7 +101,7 @@ export default {
     }
 
     .container {
-      z-index: unset;
+      z-index: 2;
     }
 
     svg {
@@ -261,7 +254,7 @@ export default {
     position: absolute;
     left: -20vw;
     top: calc(50% - 20vw);
-    z-index: -1;
+    z-index: 2;
     width: 40vw;
     height: 40vw;
 
@@ -280,7 +273,7 @@ export default {
     position: absolute;
     left: 5vw;
     bottom: -5vw;
-    z-index: -2;
+    z-index: 2;
     width: 20vw;
     height: 20vw;
     filter: brightness(0.7);

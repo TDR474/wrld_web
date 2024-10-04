@@ -35,17 +35,17 @@
           <li>
             <router-link to="/about" title="About me">.about()</router-link>
           </li>
-          <li>
+          <!-- <li>
             <a :href="`mailto:${data.email}`" title="Send me an email"
               >.email()</a
             >
-          </li>
-          <li v-for="link in data.links" :key="link.url" class="social-link">
+          </li> -->
+          <!-- <li v-for="link in data.links" :key="link.url" class="social-link">
             <a :href="link.url" :title="link.title" target="_blank">
               {{ link.label || null }}
               <component v-if="link.icon" :is="link.icon" />
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </div>
@@ -314,7 +314,7 @@ body.blue-background {
   .header-bg {
     background: linear-gradient(
       to bottom,
-      #0497d1 3rem,
+      #151616 3rem,
       rgba(4, 151, 209, 0) 100%
     );
   }

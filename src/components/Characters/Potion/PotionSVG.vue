@@ -52,7 +52,7 @@
             class="potion-drop2"
             cx="49.4"
             cy="37.5"
-            fill="#5918df"
+            fill="#F47F1E"
             rx="4.6"
             ry="4.6"
           />
@@ -60,7 +60,7 @@
             class="potion-drop"
             cx="59.8"
             cy="42"
-            fill="#5918df"
+            fill="#F47F1E"
             rx="2.8"
             ry="2.8"
           />

@@ -2,16 +2,16 @@
   <section class="scene-intro" id="intro">
     <div class="static-container">
       <h1 class="title">
-        <span class="iuri">iuri</span>
+        <span class="iuri">Lucid</span>
         <span class="func">.is()</span>
       </h1>
-
       <TextBlock>
-        <p class="-purple">Iuri de Paula</p>
-        <p class="-gray">Creative frontend developer</p>
+        <p class="-purple">Better Money for the Better Future</p>
+        <p class="-gray">Inflation-resistant digital currency that help you save, spend and invest with confidence.</p>
       </TextBlock>
     </div>
   </section>
+  
 </template>
 
 <script>

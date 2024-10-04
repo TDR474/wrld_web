@@ -56,6 +56,7 @@ export default { name: 'TextBlock' }
   }
   .-purple {
     color: var(--purple);
+    word-spacing: -0.2em;
   }
   .-gray {
     color: var(--gray);

@@ -1,11 +1,9 @@
 <template>
   <div>
     <h1 class="title">
-      <slot></slot
-      ><template v-if="params"
-        >(<span class="params">{{ params }}</span
-        >)</template
-      >
+      <slot></slot>
+      <template v-if="params">(<a :href="params" target="_blank"><span class="params">{{ params }}</span>
+      </a>)</template>
     </h1>
     <TextBlock v-if="subtitle">
       <p class="-gray">{{ subtitle }}</p>
@@ -21,6 +19,7 @@ export default {
   props: {
     params: String,
     subtitle: String,
+    href: String,
   },
   components: { TextBlock },
 }

@@ -12,7 +12,7 @@
       </TextBlock>
 
       <template #container>
-        <div class="sky">
+        <div>
           <div class="cloud c1"></div>
           <div class="cloud c2"></div>
         </div>
