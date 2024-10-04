@@ -1,35 +1,41 @@
 <template>
-  <div>
+  <div id="home" class="wrapper">
     
     <IntroScene />
     <GapBlock />
-  
+    <template>
   <div id="home" class="wrapper">
-    
+    <!-- Other components -->
 
-    
+    <TitleFunction scene="curriculum">
+      <TitleSection
+        :cvLink="'https://drive.google.com/file/d/1BADQx9Zv18Dzr4xhRAh87_gBE8WFsRAK/view?usp=sharing'"
+        params="/^.*$/"
+        subtitle="<working ver. 1.1>"
+      >
+        whitePaper
+      </TitleSection>
+    </TitleFunction>
 
-    
-    <TitleSection scene="curriculum">
-      <TitleFunction 
-      params="ThePath" 
-      subtitle="" 
-      href="https://drive.google.com/file/d/1BADQx9Zv18Dzr4xhRAh87_gBE8WFsRAK/view?usp=sharing"></TitleFunction>
-    </TitleSection>
+    <!-- Other components -->
+  </div>
+</template>
 
+
+    <!-- <h1 class="title" style="color: white; opacity: 1;">Test Title</h1> -->
     <BizScene :isPlaying="isPlaying.Biz" />
    
 
 
     <!--Title: Art Phi Games-->
-    <Titles :viewport="viewport" scene="ArtPhiGamesTitle">
+    <!-- <TitleSection :viewport="viewport" scene="ArtPhiGamesTitle">
             <h1 class="title">
                 
             </h1>
             <div class="std">
                 
             </div>
-        </Titles>
+        </Titles> -->
 
         <!--mario-->
         <SuperMario />
@@ -44,7 +50,6 @@
         <!--thanks-->
         <Thanks />
     </div>
-  </div>
 
 </template>
 
@@ -132,7 +137,7 @@ export default {
     // loop animations
     this.isPlaying = {
       Biz: false,
-      //////earlyDays: false,
+      earlyDays: false,
       Ghibli: false,
       Potion: false,
     }

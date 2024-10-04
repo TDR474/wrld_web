@@ -2,7 +2,7 @@
   <section class="scene-intro" id="intro">
     <div class="static-container">
       <h1 class="title">
-        <span class="iuri">Lucid</span>
+        <span class="k">Lucid</span>
         <span class="func">.is()</span>
       </h1>
       <TextBlock>

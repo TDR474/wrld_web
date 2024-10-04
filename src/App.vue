@@ -267,13 +267,15 @@ body {
   letter-spacing: -0.05em;
   word-break: break-word;
   hyphens: auto;
-  // margin-left: 25vw;
-  margin-right: -25vw;
-  padding-right: 20rem;
+  margin: 0; /* Removed negative margin-right */
+  padding: 0; /* Adjusted padding */
+
+  .k {
+    color: var(--light); /* Adjust color as needed */
+  }
 
   .func {
     color: var(--purple);
-    letter-spacing: -0.05em;
   }
 
   .params {
@@ -282,6 +284,7 @@ body {
     letter-spacing: -2px;
   }
 }
+
 
 /* Responsive */
 @media screen and (max-width: 1024px) {
@@ -305,7 +308,7 @@ body {
     .subtitle {
       margin-right: -4rem;
       font-size: 3.5rem;
-      word-spacing: -0.05rem;
+      word-spacing: unset;
     }
   }
 }

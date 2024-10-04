@@ -1,54 +1,54 @@
 <template>
-  <div :class="scene">
-    <slot></slot> <!-- Ensures TitleFunction slot content is rendered -->
+  <div>
+    <h1 class="title">
+      <slot></slot>
+      <template v-if="params">
+        (<a
+          :href="cvLink"
+          class="params"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ params }}
+        </a>)
+      </template>
+    </h1>
+    <TextBlock v-if="subtitle">
+      <p class="-gray">{{ subtitle }}</p>
+    </TextBlock>
   </div>
 </template>
 
 <script>
-// export default {
-//   props: {
-//     scene: {
-//       type: String,
-//       default: '',
-//     },
-//   },
-// };
-// </script>
-
+import TextBlock from './TextBlock.vue'
 
 export default {
   name: 'TitleSection',
   props: {
-    scene: String,
+    params: String,
+    subtitle: String,
+    cvLink: {
+      type: String,
+      default: 'your_cv_link_here', // Replace with your actual CV link
+    },
   },
+  components: { TextBlock },
+}
+</script>
+
+<!-- Scoped styles if needed -->
+<style scoped>
+.title {
+  /* Your title styles */
 }
 
+.params {
+  /* Styles for the clickable parameter */
+  color: var(--purple); /* Or any color you prefer */
+  text-decoration: none;
+}
 
-<style lang="scss">
-.title-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  visibility: hidden;
-  perspective: 900px;
-  perspective-origin: 50% 50vh;
-  padding-left: 4rem; /* Adjust this to match the alignment of bottom text */
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start; /* Align to the left */
-  justify-content: center;
-
-
-
-  @media screen and (max-width: 1024px) {
-    padding-left: 0rem;
-  }
-
-  @media screen and (max-width: 568px) {
-    padding-left: 1rem; /* Reduce padding for smaller screens */
-  }
+.params:hover {
+  text-decoration: underline;
 }
 </style>

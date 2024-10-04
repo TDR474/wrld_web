@@ -1,26 +1,18 @@
 <template>
-  <div>
-    <h1 class="title">
+  <section class="scene-intro" :id="scene">
+    <div class="static-container">
       <slot></slot>
-      <template v-if="params">(<a :href="params" target="_blank"><span class="params">{{ params }}</span>
-      </a>)</template>
-    </h1>
-    <TextBlock v-if="subtitle">
-      <p class="-gray">{{ subtitle }}</p>
-    </TextBlock>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
-import TextBlock from './TextBlock.vue'
-
 export default {
   name: 'TitleFunction',
   props: {
-    params: String,
-    subtitle: String,
-    href: String,
+    scene: String,
   },
-  components: { TextBlock },
 }
 </script>
+
+<!-- No additional styles are needed since we're using existing classes -->
