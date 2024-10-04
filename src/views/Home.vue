@@ -49,24 +49,24 @@
 </template>
 
 <script>
-import { TimelineMax, TweenLite, Power0, Power1, Power2, Power3 } from 'gsap'
+import { TimelineMax, TweenLite, Power0, Power3 } from 'gsap'
 import * as ScrollMagic from 'scrollmagic'
 import {
   DOM,
   removeBodyClass,
   addBodyClass,
   isReverse,
-  isForward,
+  // isForward,
 } from '@/utils'
 //import GlowyBlob from "../components/GlowyBlob.vue";
 import AudioMarioStart from '../components/Characters/SuperMario/assets/smw_princess_help.ogg'
 import IntroScene from '../components/Home/IntroScene.vue'
 import BizScene from '../components/Home/BizScene.vue'
 //import //earlyDaysScene from '../components/Home///earlyDaysScene.vue'
-import SuperMarioScene from '../components/Home/SuperMarioScene.vue'
-import GhibliScene from '../components/Home/GhibliScene.vue'
-import WrapperScene from '../components/Home/WrapperScene.vue'
-import ThanksScene from '../components/Home/ThanksScene.vue'
+// import SuperMarioScene from '../components/Home/SuperMarioScene.vue'
+// import GhibliScene from '../components/Home/GhibliScene.vue'
+// import WrapperScene from '../components/Home/WrapperScene.vue'
+// import ThanksScene from '../components/Home/ThanksScene.vue'
 import GapBlock from '../components/GapBlock.vue'
 import TitleSection from '../components/TitleSection.vue'
 import TitleFunction from '../components/TitleFunction.vue'
@@ -79,10 +79,10 @@ export default {
     IntroScene,
     BizScene,
     ////earlyDaysScene,
-    SuperMarioScene,
-    GhibliScene,
-    WrapperScene,
-    ThanksScene,
+    // SuperMarioScene,
+    // GhibliScene,
+    // WrapperScene,
+    // ThanksScene,
     GapBlock,
     TitleSection,
     TitleFunction,

@@ -54,12 +54,12 @@
 
 <script>
 import { fetchData } from '@/utils'
-import LinkedInIcon from './Icon/LinkedInIcon.vue'
-import GithubIcon from './Icon/GithubIcon.vue'
+// import LinkedInIcon from './Icon/LinkedInIcon.vue'
+// import GithubIcon from './Icon/GithubIcon.vue'
 
 export default {
   name: 'HeaderSection',
-  components: { LinkedInIcon, GithubIcon },
+  // components: { LinkedInIcon, GithubIcon },
   data() {
     return {
       data: {},
