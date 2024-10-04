@@ -51,4 +51,13 @@ export default {
 .params:hover {
   text-decoration: underline;
 }
+/* .scene-intro {
+  margin: 0;
+  padding: 0;
+}
+
+.static-container {
+  margin: 0;
+  padding: 0;
+} */
 </style>

@@ -10,7 +10,7 @@
     <TitleFunction scene="curriculum">
       <TitleSection
         :cvLink="'https://drive.google.com/file/d/1BADQx9Zv18Dzr4xhRAh87_gBE8WFsRAK/view?usp=sharing'"
-        params="/^.*$/"
+        params="/^.*/g"
         subtitle="<working ver. 1.1>"
       >
         whitePaper

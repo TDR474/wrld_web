@@ -14,5 +14,16 @@ export default {
   },
 }
 </script>
+<!-- <style scoped>
+.scene-intro {
+  margin: 0;
+  padding: 0;
+}
+
+.static-container {
+  margin: 0;
+  padding: 0;
+}
+</style> -->
 
 <!-- No additional styles are needed since we're using existing classes -->
