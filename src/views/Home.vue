@@ -107,7 +107,7 @@ export default {
   },
   mounted() {
     // setup
-    this.playGlowyBlob()
+    // this.playGlowyBlob()
     this.playIntroScene()
     
     this.setupScenes()
